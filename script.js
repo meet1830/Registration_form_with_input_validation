@@ -1,124 +1,142 @@
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
-const state = document.getElementById("state");
-const city = document.getElementById("city");
-const zip = document.getElementById("zip");
+const contact = document.getElementById("contact");
+const batch = document.getElementById("batch");
+const module = document.getElementById("module");
 const tnC = document.getElementById("tnC");
-let error = false;
+
+let fnerror = false;
+let lnerror = false;
+let emerror = false;
+let conerror = false;
+let bterror = false;
+let mderror = false;
+let tncerror = false;
 
 function validate() {
-  if (firstName.value.length) {
+  // validate first name
+  if (firstName.value.length >= 3) {
     document.getElementById("first-name-valid").style.display = "block";
     document.getElementById("first-name-invalid").style.display = "none";
-    error = false;
+    fnerror = false;
   } else {
     document.getElementById("first-name-valid").style.display = "none";
     document.getElementById("first-name-invalid").style.display = "block";
-    error = true;
+    fnerror = true;
   }
 
-  // empty string is falsy value and string of length more than equal to 1 is truthy hence can check this way
-  // but black space will also be considered as truthy
-  if (lastName.value.length) {
+  // validate last name
+  if (lastName.value.length >= 3) {
     document.getElementById("last-name-valid").style.display = "block";
     document.getElementById("last-name-invalid").style.display = "none";
-    error = false;
+    lnerror = false;
   } else {
     document.getElementById("last-name-valid").style.display = "none";
     document.getElementById("last-name-invalid").style.display = "block";
-    error = true;
+    lnerror = true;
   }
 
-  /* for email validation checks
-        - input field empty
-        - should contain '.' and '@'
-        - should contain at least two chars after '.'
-        - first char cannot be '@'     
-    */
-   let str = email.value;
+  // validate email
+  let str = email.value;
   if (
     str.length >= 6 &&
     str.includes("@") &&
     str.includes(".") &&
     str.indexOf("@") != 0 &&
-    str.lastIndexOf('.') < str.length - 2
+    str.lastIndexOf(".") < str.length - 2
   ) {
-    // a@g.co minimum length of email 6
     document.getElementById("email-valid").style.display = "block";
     document.getElementById("email-invalid").style.display = "none";
-    error = false;
+    emerror = false;
   } else {
     document.getElementById("email-valid").style.display = "none";
     document.getElementById("email-invalid").style.display = "block";
-    error = true;
+    emerror = true;
   }
 
-  if (state.value != document.getElementById('default').value) {
-    document.getElementById("state-valid").style.display = "block";
-    document.getElementById("state-invalid").style.display = "none";
-    error = false;
+  // validate phone number
+  if (contact.value.length === 10 && !isNaN(contact.value)) {
+    document.getElementById("contact-valid").style.display = "block";
+    document.getElementById("contact-invalid").style.display = "none";
+    conerror = false;
   } else {
-    document.getElementById("state-valid").style.display = "none";
-    document.getElementById("state-invalid").style.display = "block";
-    error = true;
+    document.getElementById("contact-valid").style.display = "none";
+    document.getElementById("contact-invalid").style.display = "block";
+    conerror = true;
   }
 
-  if(city.value.length > 2) {
-    document.getElementById("city-valid").style.display = "block";
-    document.getElementById("city-invalid").style.display = "none";
-    error = false;
+  // validate batch no.
+  if (batch.value != document.getElementById("batch-default").value) {
+    document.getElementById("batch-valid").style.display = "block";
+    document.getElementById("batch-invalid").style.display = "none";
+    bterror = false;
   } else {
-    document.getElementById("city-valid").style.display = "none";
-    document.getElementById("city-invalid").style.display = "block";
-    error = true;
+    document.getElementById("batch-valid").style.display = "none";
+    document.getElementById("batch-invalid").style.display = "block";
+    bterror = true;
   }
 
-  // zip.value is always a string so cannot use typeof is equals to number or not
-  // can also use parseInt(zip.value) will return NaN is not number or else returns a number which is truthy
-  // can add !parseInt(value) to every input if not want it to have a number
-  if(zip.value.length === 6 && !isNaN(zip.value)) {
-    document.getElementById("zip-valid").style.display = "block";
-    document.getElementById("zip-invalid").style.display = "none";
-    error = false;
+  // validate module number
+  if (module.value != document.getElementById("module-default").value) {
+    document.getElementById("module-valid").style.display = "block";
+    document.getElementById("module-invalid").style.display = "none";
+    mderror = false;
   } else {
-    document.getElementById("zip-valid").style.display = "none";
-    document.getElementById("zip-invalid").style.display = "block";
-    error = true;
+    document.getElementById("module-valid").style.display = "none";
+    document.getElementById("module-invalid").style.display = "block";
+    mderror = true;
   }
 
+  // validate terms and conditions
   if (!tnC.checked) {
     document.getElementById("tnC-invalid").style.display = "block";
-    error = true;
+    document.getElementById("tnC-valid").style.display = "none";
+    tncerror = true;
   } else {
     document.getElementById("tnC-invalid").style.display = "none";
-    error = false;
+    document.getElementById("tnC-valid").style.display = "block";
+    tncerror = false;
   }
 
-  if (!error) {
-    alert('Your details have been saved successfully.');
+  if (
+    !fnerror &&
+    !lnerror &&
+    !emerror &&
+    !conerror &&
+    !bterror &&
+    !mderror &&
+    !tncerror
+  ) {
+    alert("Your details have been saved successfully!");
 
     // reset form
-    firstName.value = '';
+    firstName.value = "";
     document.getElementById("first-name-valid").style.display = "none";
+    document.getElementById("first-name-invalid").style.display = "none";
 
-    lastName.value = '';
+    lastName.value = "";
     document.getElementById("last-name-valid").style.display = "none";
+    document.getElementById("last-name-invalid").style.display = "none";
 
-    email.value = '';
+    email.value = "";
     document.getElementById("email-valid").style.display = "none";
-    
-    state.value = document.getElementById('default').value;
-    document.getElementById("state-valid").style.display = "none";
+    document.getElementById("email-invalid").style.display = "none";
 
-    city.value = '';
-    document.getElementById("city-valid").style.display = "none";
+    contact.value = "";
+    document.getElementById("contact-valid").style.display = "none";
+    document.getElementById("contact-invalid").style.display = "none";
 
-    zip.value = '';
-    document.getElementById("zip-valid").style.display = "none";
+    batch.value = document.getElementById("batch-default").value;
+    document.getElementById("batch-valid").style.display = "none";
+    document.getElementById("batch-invalid").style.display = "none";
+
+    module.value = document.getElementById("module-default").value;
+    document.getElementById("module-valid").style.display = "none";
+    document.getElementById("module-invalid").style.display = "none";
 
     tnC.checked = false;
     document.getElementById("tnC-invalid").style.display = "none";
+    document.getElementById("tnC-valid").style.display = "none";
   }
-  
 }

@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -16,129 +17,123 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="display-3">Registration Form with Validation</h1>
-        <div class="form">
-            <form class="row g-3 registration-form">
-                <div class="col-md-4">
-                    <label for="first-name" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="first-name" autocomplete="off">
-                    <div class="valid-feedback" id="first-name-valid">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback" id="first-name-invalid">
-                        Please enter a valid first name.
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label for="last-name" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="last-name" autocomplete="off">
-                    <div class="valid-feedback" id="last-name-valid">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback" id="last-name-invalid">
-                        Please enter a valid last name.
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label for="email" class="form-label">Email</label>
-                    <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" class="form-control" id="email" aria-describedby="inputGroupPrepend"
-                            autocomplete="off">
-                        <div class="valid-feedback" id="email-valid">
+    <div class="body">
+        <div class="wrapper-container">
+            <h1 class="heading">Registration Form</h1>
+            <div class="form">
+                <form class="row g-3 registration-form">
+
+                    <!-- First name -->
+                    <div class="col-md-6">
+                        <label for="first-name" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="first-name" autocomplete="off">
+                        <div class="valid-feedback" id="first-name-valid">
                             Looks good!
                         </div>
-                        <div class="invalid-feedback" id="email-invalid">
-                            Please choose a valid email.
+                        <div class="invalid-feedback" id="first-name-invalid">
+                            Please enter a valid first name.
                         </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <label for="state" class="form-label">State</label>
-                    <select class="form-select" id="state">
-                        <option selected disabled value="default" id="default">Choose...</option>
-                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                        <option value="Assam">Assam</option>
-                        <option value="Bihar">Bihar</option>
-                        <option value="Chandigarh">Chandigarh</option>
-                        <option value="Chhattisgarh">Chhattisgarh</option>
-                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                        <option value="Daman and Diu">Daman and Diu</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="Lakshadweep">Lakshadweep</option>
-                        <option value="Puducherry">Puducherry</option>
-                        <option value="Goa">Goa</option>
-                        <option value="Gujarat">Gujarat</option>
-                        <option value="Haryana">Haryana</option>
-                        <option value="Himachal Pradesh">Himachal Pradesh</option>
-                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                        <option value="Jharkhand">Jharkhand</option>
-                        <option value="Karnataka">Karnataka</option>
-                        <option value="Kerala">Kerala</option>
-                        <option value="Madhya Pradesh">Madhya Pradesh</option>
-                        <option value="Maharashtra">Maharashtra</option>
-                        <option value="Manipur">Manipur</option>
-                        <option value="Meghalaya">Meghalaya</option>
-                        <option value="Mizoram">Mizoram</option>
-                        <option value="Nagaland">Nagaland</option>
-                        <option value="Odisha">Odisha</option>
-                        <option value="Punjab">Punjab</option>
-                        <option value="Rajasthan">Rajasthan</option>
-                        <option value="Sikkim">Sikkim</option>
-                        <option value="Tamil Nadu">Tamil Nadu</option>
-                        <option value="Telangana">Telangana</option>
-                        <option value="Tripura">Tripura</option>
-                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                        <option value="Uttarakhand">Uttarakhand</option>
-                        <option value="West Bengal">West Bengal</option>
-                    </select>
-                    <div class="valid-feedback" id="state-valid">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback" id="state-invalid">
-                        Please select a state.
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <label for="city" class="form-label">City</label>
-                    <input type="text" class="form-control" id="city" autocomplete="off">
-                    <div class="valid-feedback" id="city-valid">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback" id="city-invalid">
-                        Please provide a valid city.
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <label for="zip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="zip" autocomplete="off">
-                    <div class="valid-feedback" id="zip-valid">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback" id="zip-invalid">
-                        Please provide a valid zip.
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="tnC">
-                        <label class="form-check-label" for="tnC">
-                            Agree to terms and conditions
-                        </label>
-                        <div class="invalid-feedback" id="tnC-invalid">
-                            You must agree before submitting.
+
+                    <!-- last name -->
+                    <div class="col-md-6">
+                        <label for="last-name" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="last-name" autocomplete="off">
+                        <div class="valid-feedback" id="last-name-valid">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback" id="last-name-invalid">
+                            Please enter a valid last name.
                         </div>
                     </div>
-                </div>
-                <div class="col-12 button">
-                    <button class="btn btn-lg btn-dark" type="button" onclick="validate()">Submit form</button>
-                    <!-- use type button here to prevent it to reload the page similar to e.preventdefault() in js -->
-                    <!-- use autocomplete off inside every input field to prevent browser from suggesting previously added input to form -->
-                </div>
-            </form>
+
+                    <!-- email -->
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                            <input type="text" class="form-control" id="email" aria-describedby="inputGroupPrepend"
+                                autocomplete="off">
+                            <div class="valid-feedback" id="email-valid">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback" id="email-invalid">
+                                Please enter a valid email.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- phone number -->
+                    <div class="col-md-6">
+                        <label for="contact" class="form-label">Phone number</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend">+91</span>
+                            <input type="text" class="form-control" id="contact" aria-describedby="inputGroupPrepend"
+                                autocomplete="off">
+                            <div class="valid-feedback" id="contact-valid">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback" id="contact-invalid">
+                                Please provide a valid phone number.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Batch No. -->
+                    <div class="col-md-6">
+                        <label for="batch" class="form-label">Batch No</label>
+                        <select class="form-select" id="batch">
+                            <option selected value="default" id="batch-default">Select Batch No ...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <div class="valid-feedback" id="batch-valid">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback" id="batch-invalid">
+                            Please select a valid Batch No.
+                        </div>
+                    </div>
+
+                    <!-- Current module -->
+                    <div class="col-md-6">
+                        <label for="module" class="form-label">Current Module</label>
+                        <select class="form-select" id="module">
+                            <option selected value="default" id="module-default">Select Current Module ...</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <div class="valid-feedback" id="module-valid">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback" id="module-invalid">
+                            Please select a valid Module No.
+                        </div>
+                    </div>
+
+                    <!-- terms and conditions -->
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="tnC">
+                            <label class="form-check-label" for="tnC">
+                                Agree to terms and conditions
+                            </label>
+                            <div class="invalid-feedback" id="tnC-invalid">
+                                You must agree before submitting.
+                            </div>
+                            <div class="valid-feedback" id="tnC-valid">
+                                Ok thanks!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- submit form button -->
+                    <button type="button" class="button" onclick="validate()">Submit form</button>
+
+                </form>
+            </div>
         </div>
     </div>
 
